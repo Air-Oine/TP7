@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TP7</string>
+    <string name="ios">iOS</string>
+    <string name="question_incomprise">je n\'ai pas compris la question</string>
+    <string name="android">Android</string>
+    <string name="question">Quel est le meilleur OS mobile ?</string>
+    <string name="wrong_answer">Quel est le carré de l\'hypothénuse de la distance Terre-Uranus, divisée par l\'âge de votre belle mère, à laquelle on soustrait la production annuelle de betteraves du Guatémala ?</string>
+    <string name="good_answer">Combien font 2 + 2 ?</string>
+    <string name="question2_ok">4</string>
+    <string name="vrai">Vrai</string>
+    <string name="faux">Faux</string>
+    <string name="questionnaire">Questionnaire</string>
 </resources>
