@@ -13,10 +13,7 @@ import java.util.ListIterator;
 
 public class MainActivity3 extends AppCompatActivity {
 
-    private int cpt = 0;
-    private int res = 0;
-
-    private List<VraiFaux> questions = new ArrayList<VraiFaux>();
+    private QuestionnaireVraiFaux questionnaire = new QuestionnaireVraiFaux();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,26 +21,25 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
 
         //On initialize les questions
+        List<VraiFaux> questions = new ArrayList<VraiFaux>();
         questions.add(new VraiFaux("Les violons pleurent des bégonias", false));
         questions.add(new VraiFaux("Les haricots sont généralement verts", true));
         questions.add(new VraiFaux("Superman est plus fort que Batman", true));
         questions.add(new VraiFaux("Il fait beau", true));
 
+        questionnaire.setQuestions(questions);
+
         TextView question = (TextView) findViewById(R.id.question);
-        question.setText(questions.get(cpt).getQuestion());
+        question.setText(questionnaire.getQuestionTexte());
     }
 
     public void onClickVrai(View view) {
-        if(questions.get(cpt).isReponse()) {
-            res++;
-        }
+        questionnaire.reponseBonne(true);
         questionSuivante();
     }
 
     public void onClickFaux(View view) {
-        if(!questions.get(cpt).isReponse()) {
-            res++;
-        }
+        questionnaire.reponseBonne(false);
         questionSuivante();
     }
 
@@ -54,13 +50,12 @@ public class MainActivity3 extends AppCompatActivity {
         TextView question = (TextView) findViewById(R.id.question);
 
         //Question suivante si il y en a une
-        cpt++;
-        if(cpt < questions.size()) {
-            question.setText(questions.get(cpt).getQuestion());
+        if(questionnaire.questionSuivante()) {
+            question.setText(questionnaire.getQuestionTexte());
         }
         //Affichage du nombre de bonnes réponses
         else {
-            question.setText("Vous avez " + res + " bonnes réponses");
+            question.setText("Vous avez " + questionnaire.getRes() + " bonnes réponses");
 
             //Boutons masqués
             Button boutonVrai = (Button) findViewById(R.id.vrai);
