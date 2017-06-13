@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         go.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+                Intent intent = new Intent(MainActivity.this, ActivityRecursive.class);
                 startActivity(intent);
             }
         });
