@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -38,7 +37,7 @@ public class ActivityRecursive extends AppCompatActivity {
         }
 
         //On initialize les questions
-        questions = new ArrayList<VraiFaux>();
+        questions = new ArrayList<>();
         questions.add(new VraiFaux("Les violons pleurent des bégonias", false));
         questions.add(new VraiFaux("Les haricots sont généralement verts", true));
         questions.add(new VraiFaux("Superman est plus fort que Batman", true));
